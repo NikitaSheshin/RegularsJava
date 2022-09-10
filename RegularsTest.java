@@ -36,4 +36,26 @@ public class RegularsTest {
         Assert.assertFalse(reg.checkGUID("f0f0b1c-3c47-486c-a5d-09dcbdafb91"));
         Assert.assertFalse(reg.checkGUID("e02fd.e4-00fd-09A-ca30-0d00a0?38ba0"));
     }
+
+    @Test
+    public void checkTrueURL(){
+        Assert.assertTrue(reg.checkURL("http://www.example.com"));
+        Assert.assertTrue(reg.checkURL("www.example.com"));
+        Assert.assertTrue(reg.checkURL("ex.com"));
+        Assert.assertTrue(reg.checkURL("https://example.com"));
+        Assert.assertTrue(reg.checkURL("example/page1.ru"));
+        Assert.assertTrue(reg.checkURL("example/?page1+page2.com"));
+    }
+
+    @Test
+    public void checkFalseURL(){
+        Assert.assertFalse(reg.checkURL("Just Text"));
+        Assert.assertFalse(reg.checkURL("a.com"));
+        Assert.assertFalse(reg.checkURL("google.d"));
+        Assert.assertFalse(reg.checkURL("google.qwertyy"));
+        Assert.assertFalse(reg.checkURL
+                ("https://www.sdgkbfghdjsdbgkjbgfdg4gg58787eg7eg8d6rhgsdhg8hsgd7h6rgrdghdfhg6rheg6hd67hfgherhg67dh67gh6" +
+                        "erhg6hdhfg6her67hehgfhdgh67erghd6f7g67her6gh6dh76gfdgbrb6g67bfdbgdbgergb6bd76gffd6bg76er67bg76d6gd67fb67gd6g67e67gbre76gfdbg6bgergdbf6bg6erbg6rebg7bdf6g7rbk.com"));
+        Assert.assertFalse(reg.checkURL("https:/google.com"));
+    }
 }
