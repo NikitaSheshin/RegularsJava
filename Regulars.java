@@ -10,4 +10,9 @@ public class Regulars {
     public Boolean checkGUID(String ip){
         return ip.matches("^[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}$");
     }
+
+    public Boolean checkURL(String ip){
+        return ip.matches
+                ("^((http|https)?:\\/\\/(www\\.)?)?[0-9A-Za-z+~s\\/#=\\+?@%\\.][0-9A-Za-z+~s\\/\\-\\+?#=\\\\@%\\.]{0,254}[0-9A-Za-z+~s\\/\\+?#=\\\\@%\\.]\\.[a-z]{2,6}$");
+    }
 }

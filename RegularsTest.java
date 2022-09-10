@@ -43,7 +43,7 @@ public class RegularsTest {
         Assert.assertTrue(reg.checkURL("www.example.com"));
         Assert.assertTrue(reg.checkURL("ex.com"));
         Assert.assertTrue(reg.checkURL("https://example.com"));
-        Assert.assertTrue(reg.checkURL("example/page1.ru"));
+        Assert.assertTrue(reg.checkURL("://example/page1.ru"));
         Assert.assertTrue(reg.checkURL("example/?page1+page2.com"));
     }
 
@@ -54,8 +54,7 @@ public class RegularsTest {
         Assert.assertFalse(reg.checkURL("google.d"));
         Assert.assertFalse(reg.checkURL("google.qwertyy"));
         Assert.assertFalse(reg.checkURL
-                ("https://www.sdgkbfghdjsdbgkjbgfdg4gg58787eg7eg8d6rhgsdhg8hsgd7h6rgrdghdfhg6rheg6hd67hfgherhg67dh67gh6" +
-                        "erhg6hdhfg6her67hehgfhdgh67erghd6f7g67her6gh6dh76gfdgbrb6g67bfdbgdbgergb6bd76gffd6bg76er67bg76d6gd67fb67gd6g67e67gbre76gfdbg6bgergdbf6bg6erbg6rebg7bdf6g7rbk.com"));
+                ("https://www.sdgkbfghdjsdbgkjbgfdg4gg58787eg7eg8d6rhgsdhg8hsgd7h6rgrdghdfhg6rheg6hd67hfgherhg67dh67ghggggggggfdgdfgdfgfdgdhdghdfjgndbgjdbgdfbgdbgdfjbgdjbgjfbgbgghfdbgjdbfdggfgd76gffd6bg76er67bg76d6gd67fb67gd6g67e67gbre76gfdbg6bgergdbf6bg6erbg6rebg7bdf6g7rbkhhhhhhhhhhhhd.com"));
         Assert.assertFalse(reg.checkURL("https:/google.com"));
     }
 }
