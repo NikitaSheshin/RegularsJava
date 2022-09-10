@@ -57,4 +57,24 @@ public class RegularsTest {
                 ("https://www.sdgkbfghdjsdbgkjbgfdg4gg58787eg7eg8d6rhgsdhg8hsgd7h6rgrdghdfhg6rheg6hd67hfgherhg67dh67ghggggggggfdgdfgdfgfdgdhdghdfjgndbgjdbgdfbgdbgdfjbgdjbgjfbgbgghfdbgjdbfdggfgd76gffd6bg76er67bg76d6gd67fb67gd6g67e67gbre76gfdbg6bgergdbf6bg6erbg6rebg7bdf6g7rbkhhhhhhhhhhhhd.com"));
         Assert.assertFalse(reg.checkURL("https:/google.com"));
     }
+
+    @Test
+    public void checkTruePassword(){
+        Assert.assertTrue(reg.checkPass("C00l_Pass"));
+        Assert.assertTrue(reg.checkPass("SupperPas1"));
+        Assert.assertTrue(reg.checkPass("VikaSuperParol2002"));
+        Assert.assertTrue(reg.checkPass("___AAA999aaa"));
+        Assert.assertTrue(reg.checkPass("Passw0rd"));
+        Assert.assertTrue(reg.checkPass("pa22w_Rd"));
+    }
+
+    @Test
+    public void checkFalsePassword(){
+        Assert.assertFalse(reg.checkPass("Cool_pass"));
+        Assert.assertFalse(reg.checkPass("C00l"));
+        Assert.assertFalse(reg.checkPass("cool Pass"));
+        Assert.assertFalse(reg.checkPass("C00l pass"));
+        Assert.assertFalse(reg.checkPass("password"));
+        Assert.assertFalse(reg.checkPass("1254674676"));
+    }
 }
