@@ -14,6 +14,9 @@ public class RegularsTest {
         Assert.assertTrue(reg.checkIP("0.0.0.255"));
         Assert.assertTrue(reg.checkIP("255.255.255.0"));
         Assert.assertTrue(reg.checkIP("34.54.134.234"));
+        Assert.assertTrue(reg.checkIP("0.0.0.0"));
+        Assert.assertTrue(reg.checkIP("255.255.255.255"));
+        Assert.assertTrue(reg.checkIP("10.100.200.20"));
     }
 
     @Test
@@ -21,6 +24,9 @@ public class RegularsTest {
         Assert.assertFalse(reg.checkIP("0,0.0.255"));
         Assert.assertFalse(reg.checkIP("255.dgg.255.0"));
         Assert.assertFalse(reg.checkIP("34.54.1347.234"));
+        Assert.assertFalse(reg.checkIP("0.0.0."));
+        Assert.assertFalse(reg.checkIP("255.2.255"));
+        Assert.assertFalse(reg.checkIP("34.54.47.-234"));
     }
 
     @Test
@@ -28,6 +34,9 @@ public class RegularsTest {
         Assert.assertTrue(reg.checkGUID("e02fd0e4-00fd-090A-ca30-0d00a0038ba0"));
         Assert.assertTrue(reg.checkGUID("f0f0b61c-3c47-486c-ae5d-09dcbdafb921"));
         Assert.assertTrue(reg.checkGUID("07E5C308-8E9D-48F4-9E51-C801A00A521A"));
+        Assert.assertTrue(reg.checkGUID("00000000-0000-0000-0000-000000000000"));
+        Assert.assertTrue(reg.checkGUID("ffffffff-ffff-ffff-ffff-ffffffffffff"));
+        Assert.assertTrue(reg.checkGUID("AAAAAAAA-BBBB-CCCC-DDDD-EEEEEEEEEEEE"));
     }
 
     @Test
@@ -35,6 +44,10 @@ public class RegularsTest {
         Assert.assertFalse(reg.checkGUID("e02fd0e400fd090Aca300d00a0038ba0"));
         Assert.assertFalse(reg.checkGUID("f0f0b1c-3c47-486c-a5d-09dcbdafb91"));
         Assert.assertFalse(reg.checkGUID("e02fd.e4-00fd-09A-ca30-0d00a0?38ba0"));
+
+        Assert.assertFalse(reg.checkGUID("e02-fd0e4-00fd090-Aca300d-00a00-38ba0"));
+        Assert.assertFalse(reg.checkGUID("f0f0b1c-3c47-486c-a5d-09dcbdafb91"));
+        Assert.assertFalse(reg.checkGUID("e02fdRe4-00fd-09Ac-ca30-0d00a038ba0"));
     }
 
     @Test
